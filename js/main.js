@@ -7,11 +7,13 @@ const restartButtonElement = document.getElementById("restartButton");
 const gameMusic = new Audio("../Audio/Undertaletrack2.mp3");
 const gameScoreElement = document.getElementById("gameScore");
 const startGameContentElement = document.getElementById("startGame-Content");
-const wows = new Audio("../Audio/wows.mp3");
+const wows = new Audio("Audio/wows.mp3");
+const pain = new Audio("Audio/mariopain.mp3");
 const background = document.getElementById("background");
 const twoHearts = document.getElementById("twoHearts");
 const oneHearts = document.getElementById("oneHeart");
 const zeroHearts = document.getElementById("zeroHearts");
+const loseMessage = document.getElementById("loseMessage");
 /*----- app's state (variables) -----*/
 
 let shuffledQuestions, currentQuestionIndex;
@@ -60,7 +62,6 @@ function setNextQuestion() {
 }
 
 function showQuestion(question) {
-  backgroundimg.src = "../Assets/Quizshow.jpg";
   questionElement.innerText = question.question;
   if (question.img) {
     let tempimg = question.img;
@@ -88,6 +89,7 @@ function selectAnswer(event) {
     wows.play();
   } else {
     wrongAnswer++;
+    pain.play();
     displayHearts();
   }
   setStatusClass(document.body, correct);
@@ -200,35 +202,7 @@ function displayHearts() {
     background.classList.add("hide");
     oneHearts.classList.add("hide");
     twoHearts.classList.add("hide");
-    zeroHearts.classList.remove("hide");
-    setTimeout(() => {
-        twoHearts.classList.add("hide");
-        zeroHearts.classList.remove("hide");
-      }, 200);
-      setTimeout(() => {
-        oneHearts.classList.add("hide");
-        zeroHearts.classList.remove("hide");
-      }, 400);
-      setTimeout(() => {
-        twoHearts.classList.add("hide");
-        zeroHearts.classList.remove("hide");
-      }, 600);
-      setTimeout(() => {
-        oneHearts.classList.add("hide");
-        zeroHearts.classList.remove("hide");
-      }, 800);
-      setTimeout(() => {
-        zeroHearts.classList.add("hide");
-        oneHearts.classList.remove("hide");
-      }, 1000);
-      setTimeout(() => {
-        oneHearts.classList.add("hide");
-        zeroHearts.classList.remove("hide");
-      }, 1200);
-      setTimeout(() => {
-        oneHearts.classList.add("hide");
-        zeroHearts.classList.remove("hide");
-      }, 1400);
+    loseMessage.classList.remove("hide");
   }
 }
 
