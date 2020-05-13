@@ -25,6 +25,7 @@ let wrongAnswer = 0;
 /*----- cached element references -----*/
 const backgroundimg = document.getElementById("background");
 
+
 /*----- event listeners -----*/
 startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
@@ -114,12 +115,14 @@ function setStatusClass(element, correct) {
     element.classList.add("correct");
   } else {
     element.classList.add("wrong");
+    element.classList.add("shake");
   }
 }
 
 function clearStatusClass(element) {
   element.classList.remove("correct");
   element.classList.remove("wrong");
+  element.classList.remove("shake");
 }
 
 function displayHearts() {
