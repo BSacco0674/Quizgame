@@ -18,6 +18,7 @@ const winMessage = document.getElementById("winMessage");
 const secertMessage = document.getElementById("secertMessage");
 const winMessageMusic = new Audio("Audio/marioletsgo.wav");
 const secertMessageMusic = new Audio("Audio/mariothankyou.wav");
+const samus = document.getElementById("Assets/Samus.png")
 
 /*----- app's state (variables) -----*/
 
@@ -226,12 +227,6 @@ function displayHearts() {
   }
 }
 
-// function background() {
-//   if (wrongAnswer < 0) background.classList.remove("hide");
-//   if (wrongAnswer === 1) twoHearts.classList.remove("hide");
-//   if (wrongAnswer === 2) oneHeart.classList.remove("hide");
-//   if (wrongAnswer === 3) loseMessage.classList.remove("hide");
-// }
 
 /*----- Question references -----*/
 const questions = [
@@ -300,16 +295,23 @@ const questions = [
     ],
   },
 
-  {
-    question: "Who is this famous bounty hunter?",
-    img: "../Assets/Samus.png",
-    answers: [
-      { text: "Zero Suit Samus", correct: true },
-      { text: "Daisy", correct: false },
-      { text: "Chung-Li", correct: false },
-      { text: "Morganna", correct: false },
-    ],
-  },
+//   {
+//     question: "Who is this famous bounty hunter?",
+//     img: function background() {
+//            if (wrongAnswer < 0) background.classList.add("hide");
+//            if (wrongAnswer === 1) twoHearts.classList.add("hide");
+//            if (wrongAnswer === 2) oneHeart.classList.add("hide");
+//            if (wrongAnswer === 3) loseMessage.classList.add("hide")
+//         } else {
+//             samus.classList.remove.('hide');
+//     },
+//     answers: [
+//       { text: "Zero Suit Samus", correct: true },
+//       { text: "Daisy", correct: false },
+//       { text: "Chung-Li", correct: false },
+//       { text: "Morganna", correct: false },
+//     ],
+//   },
 
   // {
   //   question: "Which of these is the name of this pokemon?",
