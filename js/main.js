@@ -14,6 +14,7 @@ const twoHearts = document.getElementById("twoHearts");
 const oneHearts = document.getElementById("oneHeart");
 const zeroHearts = document.getElementById("zeroHearts");
 const loseMessage = document.getElementById("loseMessage");
+const winMessage = document.getElementById("winMessage");
 /*----- app's state (variables) -----*/
 
 let shuffledQuestions, currentQuestionIndex;
@@ -50,7 +51,7 @@ function startGame() {
   gameScore = 0;
   gameScoreElement.innerText = gameScore;
   questionContentElement.classList.remove("hide");
-  gameMusic.volume = 0.2;
+  gameMusic.volume = 0.05;
   gameMusic.play();
   gameMusic.loop;
   setNextQuestion();
@@ -100,6 +101,7 @@ function selectAnswer(event) {
     nextButton.classList.remove("hide");
   } else {
     restartButtonElement.classList.remove("hide");
+    winMessage.classList.remove("hide");
   }
 }
 
@@ -117,10 +119,6 @@ function clearStatusClass(element) {
   element.classList.remove("correct");
   element.classList.remove("wrong");
 }
-
-//once the 1st wrong answer happenes, we need the 3 hearts to go to 2 hearts
-// the 2nd wrong answer happenes, we need it to go from 2-1 hearts
-// at the 3rd wrong answer we need to go zero hearts, and end the game
 
 function displayHearts() {
   if (wrongAnswer === 0) {
@@ -203,8 +201,17 @@ function displayHearts() {
     oneHearts.classList.add("hide");
     twoHearts.classList.add("hide");
     loseMessage.classList.remove("hide");
+    restartButtonElement.classList.remove("hide")
+
   }
 }
+
+// function background() {
+//   if (wrongAnswer < 0) background.classList.remove("hide");
+//   if (wrongAnswer === 1) twoHearts.classList.remove("hide");
+//   if (wrongAnswer === 2) oneHeart.classList.remove("hide");
+//   if (wrongAnswer === 3) loseMessage.classList.remove("hide");
+// }
 
 /*----- Question references -----*/
 const questions = [
@@ -416,6 +423,17 @@ const questions = [
       { text: "Headgehog", correct: false },
       { text: "Possum", correct: false },
       { text: "Red Fox", correct: false },
+    ],
+  },
+  {
+    question:
+      "Which videogame is generally considered to be the original third-person shooter??",
+    img: false,
+    answers: [
+      { text: "Modern Warfare", correct: false },
+      { text: "Grand Theift Auto", correct: false },
+      { text: "Doom", correct: false },
+      { text: "Wolfenstein 3D", correct: true },
     ],
   },
 ];
