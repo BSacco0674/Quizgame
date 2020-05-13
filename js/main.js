@@ -195,13 +195,40 @@ function displayHearts() {
       oneHearts.classList.remove("hide");
     }, 1400);
     zeroHearts.classList.add("hide");
-    zeroHearts.classList.add("hide");
   }
   if (wrongAnswer === 3) {
     background.classList.add("hide");
     oneHearts.classList.add("hide");
     twoHearts.classList.add("hide");
     zeroHearts.classList.remove("hide");
+    setTimeout(() => {
+        twoHearts.classList.add("hide");
+        zeroHearts.classList.remove("hide");
+      }, 200);
+      setTimeout(() => {
+        oneHearts.classList.add("hide");
+        zeroHearts.classList.remove("hide");
+      }, 400);
+      setTimeout(() => {
+        twoHearts.classList.add("hide");
+        zeroHearts.classList.remove("hide");
+      }, 600);
+      setTimeout(() => {
+        oneHearts.classList.add("hide");
+        zeroHearts.classList.remove("hide");
+      }, 800);
+      setTimeout(() => {
+        zeroHearts.classList.add("hide");
+        oneHearts.classList.remove("hide");
+      }, 1000);
+      setTimeout(() => {
+        oneHearts.classList.add("hide");
+        zeroHearts.classList.remove("hide");
+      }, 1200);
+      setTimeout(() => {
+        oneHearts.classList.add("hide");
+        zeroHearts.classList.remove("hide");
+      }, 1400);
   }
 }
 
