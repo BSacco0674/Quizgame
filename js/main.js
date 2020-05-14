@@ -18,6 +18,7 @@ const winMessage = document.getElementById("winMessage");
 const secertMessage = document.getElementById("secertMessage");
 const winMessageMusic = new Audio("Audio/marioletsgo.wav");
 const secertMessageMusic = new Audio("Audio/mariothankyou.wav");
+const spyro = document.getElementById("spyro");
 const gameOverMusic = new Audio('Audio/gameover.wav');
 const nextButton = document.getElementById('nextButton');
 const zeroHearts = document.getElementById('zeroHearts');
@@ -658,7 +659,7 @@ const questions = [{
   },
   {
     question: "What is the name of this small purple dragon with a dragonfly partner?",
-    img: "../Assets/Spyro.png",
+    img: "Assets/Spyro.png",
     answers: [{
         text: "Shenron",
         correct: false
