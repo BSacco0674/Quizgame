@@ -10,9 +10,10 @@ const startGameContentElement = document.getElementById("startGame-Content");
 const wows = new Audio("Audio/oneup.wav");
 const pain = new Audio("Audio/mariopain.mp3");
 const background = document.getElementById("background");
+const threeHearts =  document.getElementById("threeHearts");
 const twoHearts = document.getElementById("twoHearts");
 const oneHearts = document.getElementById("oneHeart");
-const zeroHearts = document.getElementById("zeroHearts");
+//const zeroHearts = document.getElementById("zeroHearts");
 const loseMessage = document.getElementById("loseMessage");
 const winMessage = document.getElementById("winMessage");
 const secertMessage = document.getElementById("secertMessage");
@@ -57,8 +58,8 @@ function startGame() {
   gameScore = 0;
   gameScoreElement.innerText = gameScore;
   questionContentElement.classList.remove("hide");
-  gameMusic.volume = 0.009;
   gameMusic.play();
+  gameMusic.volume = 0.009;
   gameMusic.loop;
   setNextQuestion();
   background.classList.remove("hide");
@@ -66,7 +67,7 @@ function startGame() {
   loseMessage.classList.add("hide");
   secertMessage.classList.add("hide");
   restartButtonElement.classList.add("hide");
-  
+  threeHearts.classList.remove('hide');
 }
 
 function setNextQuestion() {
@@ -146,50 +147,50 @@ function clearStatusClass(element) {
 
 function displayHearts() {
   if (wrongAnswer === 0) {
-    background.classList.remove("hide");
+    
     oneHearts.classList.add("hide");
     twoHearts.classList.add("hide");
-    zeroHearts.classList.add("hide");
+    //zeroHearts.classList.add("hide");
   }
   if (wrongAnswer === 1) {
-    background.classList.add("hide");
     oneHearts.classList.add("hide");
     twoHearts.classList.remove("hide");
+    threeHearts.classList.add("hide");
     setTimeout(() => {
-      background.classList.add("hide");
+      threeHearts.classList.add("hide");
       twoHearts.classList.remove("hide");
     }, 200);
     setTimeout(() => {
       twoHearts.classList.add("hide");
-      background.classList.remove("hide");
+      threeHearts.classList.remove("hide");
     }, 400);
     setTimeout(() => {
-      background.classList.add("hide");
+      threeHearts.classList.add("hide");
       twoHearts.classList.remove("hide");
     }, 600);
     setTimeout(() => {
       twoHearts.classList.add("hide");
-      background.classList.remove("hide");
+      threeHearts.classList.remove("hide");
     }, 800);
     setTimeout(() => {
-      background.classList.add("hide");
+      threeHearts.classList.add("hide");
       twoHearts.classList.remove("hide");
     }, 1000);
     setTimeout(() => {
       twoHearts.classList.add("hide");
-      background.classList.remove("hide");
+      threeHearts.classList.remove("hide");
     }, 1200);
     setTimeout(() => {
-      background.classList.add("hide");
+      threeHearts.classList.add("hide");
       twoHearts.classList.remove("hide");
     }, 1400);
-    zeroHearts.classList.add("hide");
+    //zeroHearts.classList.add("hide");
   }
 
   if (wrongAnswer === 2) {
-    background.classList.add("hide");
-    oneHearts.classList.remove("hide");
-    twoHearts.classList.add("hide");
+    oneHearts.classList.add("hide");
+    twoHearts.classList.remove("hide");
+    threeHearts.classList.add("hide");
     setTimeout(() => {
       twoHearts.classList.add("hide");
       oneHearts.classList.remove("hide");
@@ -218,7 +219,7 @@ function displayHearts() {
       twoHearts.classList.add("hide");
       oneHearts.classList.remove("hide");
     }, 1400);
-    zeroHearts.classList.add("hide");
+  
   }
   if (wrongAnswer === 3) {
     background.classList.add("hide");

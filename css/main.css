@@ -14,9 +14,11 @@
 .background {
   height: 300px;
   width: 600px;
+  display: block;
 }
 .hearts {
   width: 600px;
+  display: block;
 }
 .container {
   display: flex;
