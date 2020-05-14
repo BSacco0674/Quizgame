@@ -402,7 +402,7 @@ const questions = [
   },
   {
     question: "Who is this famous bounty hunter?",
-    img: "../Assets/Samus.png",
+    img: "Assets/Samus.png",
     answers: [
       { text: "Zero Suit Samus", correct: true },
       { text: "Daisy", correct: false },
@@ -413,7 +413,7 @@ const questions = [
 
   {
     question: "Which of these is the name of this pokemon?",
-    img: "../Assets/jigglypuff.png",
+    img: "Assets/Jigglypuff.png",
     answers: [
       { text: "Gegar", correct: false },
       { text: "Charizard", correct: false },
@@ -424,7 +424,7 @@ const questions = [
 
   {
     question: "What type of animal is Sonics companion Knuckles?",
-    img: "../Assets/Knuckles.png",
+    img: "Assets/Knuckles.png",
     answers: [
       { text: "Echidna", correct: true },
       { text: "Headgehog", correct: false },
@@ -434,7 +434,7 @@ const questions = [
   },
   {
     question: "This Arwing is from what game series??",
-    img: "../Assets/Arwing.png",
+    img: "Assets/Arwing.png",
     answers: [
       { text: "Star Wars", correct: false },
       { text: "Star Fox", correct: true },
