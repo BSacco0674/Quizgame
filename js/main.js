@@ -56,7 +56,7 @@ function startGame() {
   gameScore = 0;
   gameScoreElement.innerText = gameScore;
   questionContentElement.classList.remove("hide");
-  gameMusic.volume = 0.09;
+  gameMusic.volume = 0.009;
   gameMusic.play();
   gameMusic.loop;
   setNextQuestion();
