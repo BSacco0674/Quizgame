@@ -13,13 +13,13 @@ const background = document.getElementById("background");
 const threeHearts =  document.getElementById("threeHearts");
 const twoHearts = document.getElementById("twoHearts");
 const oneHearts = document.getElementById("oneHeart");
-//const zeroHearts = document.getElementById("zeroHearts");
 const loseMessage = document.getElementById("loseMessage");
 const winMessage = document.getElementById("winMessage");
 const secertMessage = document.getElementById("secertMessage");
 const winMessageMusic = new Audio("Audio/marioletsgo.wav");
 const secertMessageMusic = new Audio("Audio/mariothankyou.wav");
 const spyro = document.getElementById("spyro");
+const gameOver = new Audio('Audio/gameover.wav')
 
 /*----- app's state (variables) -----*/
 
@@ -56,6 +56,7 @@ function startGame() {
   shuffledQuestions = questions.sort(() => Math.random(questions.length));
   currentQuestionIndex = 0;
   gameScore = 0;
+  wrongAnswer = 0;
   gameScoreElement.innerText = gameScore;
   questionContentElement.classList.remove("hide");
   gameMusic.play();
@@ -68,6 +69,8 @@ function startGame() {
   secertMessage.classList.add("hide");
   restartButtonElement.classList.add("hide");
   threeHearts.classList.remove('hide');
+  oneHearts.classList.add('hide');
+  backgroundimg.src="Assets/Quizshowbackground.jpg";
 }
 
 function setNextQuestion() {
@@ -147,10 +150,9 @@ function clearStatusClass(element) {
 
 function displayHearts() {
   if (wrongAnswer === 0) {
-    
     oneHearts.classList.add("hide");
     twoHearts.classList.add("hide");
-    //zeroHearts.classList.add("hide");
+    
   }
   if (wrongAnswer === 1) {
     oneHearts.classList.add("hide");
@@ -184,7 +186,7 @@ function displayHearts() {
       threeHearts.classList.add("hide");
       twoHearts.classList.remove("hide");
     }, 1400);
-    //zeroHearts.classList.add("hide");
+   
   }
 
   if (wrongAnswer === 2) {
@@ -224,9 +226,10 @@ function displayHearts() {
   if (wrongAnswer === 3) {
     background.classList.add("hide");
     oneHearts.classList.add("hide");
-    twoHearts.classList.add("hide");
     loseMessage.classList.remove("hide");
     restartButtonElement.classList.remove("hide");
+    gameOver.play();
+
   }
 }
 

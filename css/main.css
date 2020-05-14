@@ -12,12 +12,13 @@
 }
 
 .background {
-  height: 300px;
-  width: 600px;
+  height: 500px;
+  width: 800px;
   display: block;
 }
+
 .hearts {
-  width: 600px;
+  width: 800px;
   display: block;
 }
 .container {
@@ -47,7 +48,7 @@ body.wrong {
 }
 
 .content {
-  width: 800px;
+  width: 40vw;
   max-width: 80%;
   background-color: white;
   border-radius: 5px;
