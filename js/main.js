@@ -55,7 +55,7 @@ function startGame() {
   spyro.classList.add("hide");
   startButton.classList.add("hide");
   startGameContentElement.classList.add("hide");
-  shuffledQuestions = questions.sort(() => Math.random(questions.length));
+  shuffledQuestions = questions.sort(() => (questions.length));
   currentQuestionIndex = 0;
   gameScore = 0;
   wrongAnswer = 0;
@@ -529,7 +529,7 @@ const questions = [{
   },
 
   {
-    question: "The damsel in distress from the original Donkey Kong?",
+    question: "Who is the damsel in distress from the original Donkey Kong?",
     img: false,
     answers: [{
         text: "Pauline",
