@@ -56,7 +56,7 @@ function startGame() {
   gameScore = 0;
   gameScoreElement.innerText = gameScore;
   questionContentElement.classList.remove("hide");
-  gameMusic.volume = 0.05;
+  gameMusic.volume = 0.09;
   gameMusic.play();
   gameMusic.loop;
   setNextQuestion();
@@ -111,13 +111,13 @@ function selectAnswer(event) {
     nextButton.classList.remove("hide");
   } else {
     restartButtonElement.classList.remove("hide");
-    if (gameScore < 7) {
+    if (gameScore < 5) {
       winMessage.classList.remove("hide");
       background.classList.add("hide");
       twoHearts.classList.add("hide");
       oneHearts.classList.add("hide");
       winMessageMusic.play();
-    } else if (gameScore === 7) {
+    } else if (gameScore === 6) {
       secertMessage.classList.remove("hide");
       background.classList.add("hide");
       secertMessageMusic.play();
