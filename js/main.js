@@ -4,7 +4,7 @@ const questionContentElement = document.getElementById("question-content");
 const questionElement = document.getElementById("question");
 const answerButtonElement = document.getElementById("answerButtons");
 const restartButtonElement = document.getElementById("restartButton");
-const gameMusic = new Audio("../Audio/Undertaletrack2.mp3");
+const gameMusic = new Audio("Audio/Undertaletrack2.mp3");
 const gameScoreElement = document.getElementById("gameScore");
 const startGameContentElement = document.getElementById("startGame-Content");
 const wows = new Audio("Audio/oneup.wav");
@@ -233,7 +233,7 @@ function displayHearts() {
   }
 }
 
-/*----- Question references -----*/
+/*----- Question references ----- Displays the libary of questions for the quiz */
 const questions = [
   {
     question: "What does NES stand for??",
@@ -334,8 +334,7 @@ const questions = [
   },
 
   {
-    question:
-      "Famous Skateboarder that inspired over 17 different Skateboard that cover many different gaming platforms?",
+    question:"Famous Skateboarder that inspired over 17 different Skateboard that cover many different gaming platforms?",
     img: false,
     answers: [
       { text: "Tony Hawk", correct: true },
