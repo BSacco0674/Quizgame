@@ -19,7 +19,9 @@ const secertMessage = document.getElementById("secertMessage");
 const winMessageMusic = new Audio("Audio/marioletsgo.wav");
 const secertMessageMusic = new Audio("Audio/mariothankyou.wav");
 const spyro = document.getElementById("spyro");
-const gameOverMusic = new Audio('Audio/gameover.wav')
+const gameOverMusic = new Audio('Audio/gameover.wav');
+const nextButton = document.getElementById('nextButton');
+const zeroHearts = document.getElementById('zeroHearts');
 
 /*----- app's state (variables) -----*/
 
@@ -72,6 +74,8 @@ function startGame() {
   oneHearts.classList.add('hide');
   twoHearts.classList.add('hide');
   backgroundimg.src = "Assets/Quizshowbackground.jpg";
+  zeroHearts.classList.remove('hide');
+
 }
 
 function setNextQuestion() {
@@ -115,7 +119,7 @@ function selectAnswer(event) {
     setStatusClass(button, button.dataset.correct);
   });
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
-    nextButton.classList.remove("hide");
+    if (wrongAnswer != 3) nextButton.classList.remove("hide");
   } else {
     restartButtonElement.classList.remove("hide");
     if (gameScore < 20) {
@@ -123,11 +127,13 @@ function selectAnswer(event) {
       background.classList.add("hide");
       twoHearts.classList.add("hide");
       oneHearts.classList.add("hide");
+      zeroHearts.classList.remove("hide")
       winMessageMusic.play();
     } else if (gameScore === 20) {
       secertMessage.classList.remove("hide");
       background.classList.add("hide");
       secertMessageMusic.play();
+      zeroHearts.classList.remove("hide")
     }
   }
 }
@@ -225,11 +231,13 @@ function displayHearts() {
 
   }
   if (wrongAnswer === 3) {
+    nextButton.classList.add('hide');
     background.classList.add("hide");
     oneHearts.classList.add("hide");
     gameOver.classList.remove("hide");
     restartButtonElement.classList.remove("hide");
     gameOverMusic.play();
+    zeroHearts.classList.remove("hide")
 
   }
 }

@@ -12,12 +12,31 @@
 }
 
 .background {
-  height: 300px;
+  height: 350px;
   width: 500px;
   display: block;
+  position: absolute;
+  top: 84px;
+  left: 50px;
 }
+.parent {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  #tv {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 700px;
+    z-index: 3;
+    
+  }
 
 .hearts {
+  position: absolute;
+  top: 50px;
+  left: 50px;
   width: 500px;
   display: block;
 }
@@ -48,12 +67,12 @@ body.wrong {
 }
 
 .content {
-  width: 40vw;
-  max-width: 80%;
+  width: 750px;
   background-color: white;
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px 2px;
+  margin: 10px;
 }
 
 .button-config {
