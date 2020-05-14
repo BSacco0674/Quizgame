@@ -11,24 +11,28 @@
   --hue-correct: 145;
 }
 
-img {
+.background {
   height: 300px;
   width: 600px;
-  display: grid;
-  padding-left: 50px;
+
 
 }
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
 
 body {
   font-family: Arial, Helvetica, sans-serif;
   --hue: var(--hue-neutral);
   padding: 0;
   margin: 0;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
   background-color: hsl(var(--hue), 100%, 20%);
 }
 

@@ -18,7 +18,7 @@ const winMessage = document.getElementById("winMessage");
 const secertMessage = document.getElementById("secertMessage");
 const winMessageMusic = new Audio("Audio/marioletsgo.wav");
 const secertMessageMusic = new Audio("Audio/mariothankyou.wav");
-const samus = document.getElementById("Assets/Samus.png")
+const spyro = document.getElementById("spyro");
 
 /*----- app's state (variables) -----*/
 
@@ -49,6 +49,7 @@ function resetState() {
 }
 
 function startGame() {
+  spyro.classList.add("hide");
   startButton.classList.add("hide");
   startGameContentElement.classList.add("hide");
   shuffledQuestions = questions.sort(() => Math.random(questions.length));
@@ -65,6 +66,7 @@ function startGame() {
   loseMessage.classList.add("hide");
   secertMessage.classList.add("hide");
   restartButtonElement.classList.add("hide");
+  
 }
 
 function setNextQuestion() {
@@ -111,13 +113,13 @@ function selectAnswer(event) {
     nextButton.classList.remove("hide");
   } else {
     restartButtonElement.classList.remove("hide");
-    if (gameScore < 5) {
+    if (gameScore < 20) {
       winMessage.classList.remove("hide");
       background.classList.add("hide");
       twoHearts.classList.add("hide");
       oneHearts.classList.add("hide");
       winMessageMusic.play();
-    } else if (gameScore === 6) {
+    } else if (gameScore === 20) {
       secertMessage.classList.remove("hide");
       background.classList.add("hide");
       secertMessageMusic.play();
@@ -227,7 +229,6 @@ function displayHearts() {
   }
 }
 
-
 /*----- Question references -----*/
 const questions = [
   {
@@ -295,167 +296,158 @@ const questions = [
     ],
   },
 
-//   {
-//     question: "Who is this famous bounty hunter?",
-//     img: function background() {
-//            if (wrongAnswer < 0) background.classList.add("hide");
-//            if (wrongAnswer === 1) twoHearts.classList.add("hide");
-//            if (wrongAnswer === 2) oneHeart.classList.add("hide");
-//            if (wrongAnswer === 3) loseMessage.classList.add("hide")
-//         } else {
-//             samus.classList.remove.('hide');
-//     },
-//     answers: [
-//       { text: "Zero Suit Samus", correct: true },
-//       { text: "Daisy", correct: false },
-//       { text: "Chung-Li", correct: false },
-//       { text: "Morganna", correct: false },
-//     ],
-//   },
+  {
+    question: "Blinky, Pinky, Inky, & _____?",
+    img: false,
+    answers: [
+      { text: "Minkey", correct: false },
+      { text: "Chuck", correct: false },
+      { text: "Cylde", correct: true },
+      { text: "Eddy", correct: false },
+    ],
+  },
 
-  // {
-  //   question: "Which of these is the name of this pokemon?",
-  //   img: "../Assets/jigglypuff.png",
-  //   answers: [
-  //     { text: "Gegar", correct: false },
-  //     { text: "Charizard", correct: false },
-  //     { text: "Ludicolo", correct: false },
-  //     { text: "Jigglypuff", correct: true },
-  //   ],
-  // },
+  {
+    question: "What was Marios orginal name?",
+    img: false,
+    answers: [
+      { text: "Jumpman", correct: true },
+      { text: "Plumberdude", correct: false },
+      { text: "Wreck-It-Ralph", correct: false },
+      { text: "RocketMan", correct: false },
+    ],
+  },
 
-  // {
-  //   question: "Blinky, Pinky, Inky, & _____?",
-  //   img: false,
-  //   answers: [
-  //     { text: "Minkey", correct: false },
-  //     { text: "Chuck", correct: false },
-  //     { text: "Cylde", correct: true },
-  //     { text: "Eddy", correct: false },
-  //   ],
-  // },
+  {
+    question: "Who is the richest fictional character?",
+    img: false,
+    answers: [
+      { text: "Tywin Lannister", correct: false },
+      { text: "Jed Clampett", correct: false },
+      { text: "Bruce Wayne", correct: false },
+      { text: "Scoorge McDuck", correct: true },
+    ],
+  },
 
-  // {
-  //   question: "What was Marios orginal name?",
-  //   img: false,
-  //   answers: [
-  //     { text: "Jumpman", correct: true },
-  //     { text: "Plumberdude", correct: false },
-  //     { text: "Wreck-It-Ralph", correct: false },
-  //     { text: "RocketMan", correct: false },
-  //   ],
-  // },
+  {
+    question:
+      "Famous Skateboarder that inspired over 17 different Skateboard that cover many different gaming platforms?",
+    img: false,
+    answers: [
+      { text: "Tony Hawk", correct: true },
+      { text: "Rodney Mullen", correct: false },
+      { text: "Bam Margera", correct: false },
+      { text: "Oksana Baiul", correct: false },
+    ],
+  },
 
-  // {
-  //   question:
-  //     "What is the name of this small purple dragon with a dragonfly partner?",
-  //   img: "../Assets/Spyro.png",
-  //   answers: [
-  //     { text: "Shenron", correct: false },
-  //     { text: "Smaug", correct: false },
-  //     { text: "Spyro", correct: true },
-  //     { text: "Toothless", correct: false },
-  //   ],
-  // },
+  {
+    question: "Segas first handheld game console released worldwide?",
+    img: false,
+    answers: [
+      { text: "Switch", correct: false },
+      { text: "PS Pro", correct: false },
+      { text: "Game Gear", correct: true },
+      { text: "Sega Genesis Arcade Ultimate Portable", correct: false },
+    ],
+  },
 
-  // {
-  //   question: "Who is the richest fictional character?",
-  //   img: false,
-  //   answers: [
-  //     { text: "Tywin Lannister", correct: false },
-  //     { text: "Jed Clampett", correct: false },
-  //     { text: "Bruce Wayne", correct: false },
-  //     { text: "Scoorge McDuck", correct: true },
-  //   ],
-  // },
+  {
+    question: "Who is the doctor that created Mega Man?",
+    img: false,
+    answers: [
+      { text: "Dr. Robotnik", correct: false },
+      { text: "Dr. Eggman", correct: false },
+      { text: "Dr. Light", correct: true },
+      { text: "Dr. Gero", correct: false },
+    ],
+  },
 
-  // {
-  //   question:
-  //     "Famous Skateboarder that inspired over 17 different Skateboard that cover many different gaming platforms?",
-  //   img: false,
-  //   answers: [
-  //     { text: "Tony Hawk", correct: true },
-  //     { text: "Rodney Mullen", correct: false },
-  //     { text: "Bam Margera", correct: false },
-  //     { text: "Oksana Baiul", correct: false },
-  //   ],
-  // },
+  {
+    question:
+      "Atari 2600 has a released a game that is considered one of the worst game ever?",
+    img: false,
+    answers: [
+      { text: "Pong", correct: false },
+      { text: "E.T. the Extra-Terrestrial", correct: true },
+      { text: "Space Invaders", correct: false },
+      { text: "Asteroids", correct: false },
+    ],
+  },
 
-  // {
-  //   question: "This Arwing is from what game series??",
-  //   img: "../Assets/Arwing.png",
-  //   answers: [
-  //     { text: "Star Wars", correct: false },
-  //     { text: "Star Fox", correct: true },
-  //     { text: "Battlestar Galactica", correct: false },
-  //     { text: "Firefly", correct: false },
-  //   ],
-  // },
+  {
+    question: "The damsel in distress from the original Donkey Kong?",
+    img: false,
+    answers: [
+      { text: "Pauline", correct: true },
+      { text: "Peach", correct: false },
+      { text: "Daisy", correct: false },
+      { text: "Amy Rose", correct: false },
+    ],
+  },
 
-  // {
-  //   question: "Segas first handheld game console released worldwide?",
-  //   img: false,
-  //   answers: [
-  //     { text: "Switch", correct: false },
-  //     { text: "PS Pro", correct: false },
-  //     { text: "Game Gear", correct: true },
-  //     { text: "Sega Genesis Arcade Ultimate Portable", correct: false },
-  //   ],
-  // },
+  {
+    question:
+      "Which videogame is generally considered to be the original third-person shooter??",
+    img: false,
+    answers: [
+      { text: "Modern Warfare", correct: false },
+      { text: "Grand Theift Auto", correct: false },
+      { text: "Doom", correct: false },
+      { text: "Wolfenstein 3D", correct: true },
+    ],
+  },
+  {
+    question: "Who is this famous bounty hunter?",
+    img: "../Assets/Samus.png",
+    answers: [
+      { text: "Zero Suit Samus", correct: true },
+      { text: "Daisy", correct: false },
+      { text: "Chung-Li", correct: false },
+      { text: "Morganna", correct: false },
+    ],
+  },
 
-  // {
-  //   question: "Who is the doctor that created Mega Man?",
-  //   img: false,
-  //   answers: [
-  //     { text: "Dr. Robotnik", correct: false },
-  //     { text: "Dr. Eggman", correct: false },
-  //     { text: "Dr. Light", correct: true },
-  //     { text: "Dr. Gero", correct: false },
-  //   ],
-  // },
+  {
+    question: "Which of these is the name of this pokemon?",
+    img: "../Assets/jigglypuff.png",
+    answers: [
+      { text: "Gegar", correct: false },
+      { text: "Charizard", correct: false },
+      { text: "Ludicolo", correct: false },
+      { text: "Jigglypuff", correct: true },
+    ],
+  },
 
-  // {
-  //   question:
-  //     "Atari 2600 has a released a game that is considered one of the worst game ever?",
-  //   img: false,
-  //   answers: [
-  //     { text: "Pong", correct: false },
-  //     { text: "E.T. the Extra-Terrestrial", correct: true },
-  //     { text: "Space Invaders", correct: false },
-  //     { text: "Asteroids", correct: false },
-  //   ],
-  // },
-
-  // {
-  //   question: "The damsel in distress from the original Donkey Kong?",
-  //   img: false,
-  //   answers: [
-  //     { text: "Pauline", correct: true },
-  //     { text: "Peach", correct: false },
-  //     { text: "Daisy", correct: false },
-  //     { text: "Amy Rose", correct: false },
-  //   ],
-  // },
-
-  // {
-  //   question: "What type of animal is Sonics companion Knuckles?",
-  //   img: "../Assets/Knuckles.png",
-  //   answers: [
-  //     { text: "Echidna", correct: true },
-  //     { text: "Headgehog", correct: false },
-  //     { text: "Possum", correct: false },
-  //     { text: "Red Fox", correct: false },
-  //   ],
-  // },
-  // {
-  //   question:
-  //     "Which videogame is generally considered to be the original third-person shooter??",
-  //   img: false,
-  //   answers: [
-  //     { text: "Modern Warfare", correct: false },
-  //     { text: "Grand Theift Auto", correct: false },
-  //     { text: "Doom", correct: false },
-  //     { text: "Wolfenstein 3D", correct: true },
-  //   ],
-  // },
+  {
+    question: "What type of animal is Sonics companion Knuckles?",
+    img: "../Assets/Knuckles.png",
+    answers: [
+      { text: "Echidna", correct: true },
+      { text: "Headgehog", correct: false },
+      { text: "Possum", correct: false },
+      { text: "Red Fox", correct: false },
+    ],
+  },
+  {
+    question: "This Arwing is from what game series??",
+    img: "../Assets/Arwing.png",
+    answers: [
+      { text: "Star Wars", correct: false },
+      { text: "Star Fox", correct: true },
+      { text: "Battlestar Galactica", correct: false },
+      { text: "Firefly", correct: false },
+    ],
+  },
+  {
+    question:
+      "What is the name of this small purple dragon with a dragonfly partner?",
+    img: "../Assets/Spyro.png",
+    answers: [
+      { text: "Shenron", correct: false },
+      { text: "Smaug", correct: false },
+      { text: "Spyro", correct: true },
+      { text: "Toothless", correct: false },
+    ],
+  },
 ];
