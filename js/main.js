@@ -4,7 +4,7 @@ const questionContentElement = document.getElementById("question-content");
 const questionElement = document.getElementById("question");
 const answerButtonElement = document.getElementById("answerButtons");
 const restartButtonElement = document.getElementById("restartButton");
-const gameMusic = new Audio("Audio/Undertaletrack2.mp3");
+const gameMusic = new Audio("Audio/musicTrackOne.wav");
 const gameScoreElement = document.getElementById("gameScore");
 const startGameContentElement = document.getElementById("startGame-Content");
 const wows = new Audio("Audio/oneup.wav");
@@ -62,7 +62,7 @@ function startGame() {
   gameScoreElement.innerText = gameScore;
   questionContentElement.classList.remove("hide");
   gameMusic.play();
-  gameMusic.volume = 0.009;
+  gameMusic.volume = 0.5;
   gameMusic.loop;
   setNextQuestion();
   background.classList.remove("hide");
@@ -237,6 +237,7 @@ function displayHearts() {
     restartButtonElement.classList.remove("hide");
     gameOverMusic.play();
     zeroHearts.classList.remove("hide")
+    gameMusic.pause();
 
   }
 }
