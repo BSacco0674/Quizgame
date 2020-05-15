@@ -19,9 +19,9 @@ const secertMessage = document.getElementById("secertMessage");
 const winMessageMusic = new Audio("Audio/marioletsgo.wav");
 const secertMessageMusic = new Audio("Audio/mariothankyou.wav");
 const spyro = document.getElementById("spyro");
-const gameOverMusic = new Audio('Audio/gameover.wav');
-const nextButton = document.getElementById('nextButton');
-const zeroHearts = document.getElementById('zeroHearts');
+const gameOverMusic = new Audio("Audio/gameover.wav");
+const nextButton = document.getElementById("nextButton");
+const zeroHearts = document.getElementById("zeroHearts");
 
 /*----- app's state (variables) -----*/
 
@@ -55,14 +55,14 @@ function startGame() {
   spyro.classList.add("hide");
   startButton.classList.add("hide");
   startGameContentElement.classList.add("hide");
-  shuffledQuestions = questions.sort(() => (questions.length));
+  shuffledQuestions = questions.sort(() => questions.length);
   currentQuestionIndex = 0;
   gameScore = 0;
   wrongAnswer = 0;
   gameScoreElement.innerText = gameScore;
   questionContentElement.classList.remove("hide");
   gameMusic.play();
-  gameMusic.volume = 0.5;
+  gameMusic.volume = 0.009;
   gameMusic.loop;
   setNextQuestion();
   background.classList.remove("hide");
@@ -70,12 +70,11 @@ function startGame() {
   gameOver.classList.add("hide");
   secertMessage.classList.add("hide");
   restartButtonElement.classList.add("hide");
-  threeHearts.classList.remove('hide');
-  oneHearts.classList.add('hide');
-  twoHearts.classList.add('hide');
+  threeHearts.classList.remove("hide");
+  oneHearts.classList.add("hide");
+  twoHearts.classList.add("hide");
   backgroundimg.src = "Assets/Quizshowbackground.jpg";
-  zeroHearts.classList.remove('hide');
-
+  zeroHearts.classList.remove("hide");
 }
 
 function setNextQuestion() {
@@ -107,11 +106,12 @@ function selectAnswer(event) {
   const correct = selectedButton.dataset.correct;
   if (correct) {
     gameScore++;
-    wows.volume = 0.5;
     wows.play();
+    wows.volume = 0.02;
   } else {
     wrongAnswer++;
     pain.play();
+    pain.volume = 0.02;
     displayHearts();
   }
   setStatusClass(document.body, correct);
@@ -127,13 +127,15 @@ function selectAnswer(event) {
       background.classList.add("hide");
       twoHearts.classList.add("hide");
       oneHearts.classList.add("hide");
-      zeroHearts.classList.remove("hide")
+      zeroHearts.classList.remove("hide");
       winMessageMusic.play();
+      winMessageMusic.volume = 0.02;
     } else if (gameScore === 20) {
       secertMessage.classList.remove("hide");
       background.classList.add("hide");
       secertMessageMusic.play();
-      zeroHearts.classList.remove("hide")
+      secertMessageMusic.volume = 0.02;
+      zeroHearts.classList.remove("hide");
     }
   }
 }
@@ -192,7 +194,6 @@ function displayHearts() {
       threeHearts.classList.add("hide");
       twoHearts.classList.remove("hide");
     }, 1400);
-
   }
 
   if (wrongAnswer === 2) {
@@ -227,61 +228,62 @@ function displayHearts() {
       twoHearts.classList.add("hide");
       oneHearts.classList.remove("hide");
     }, 1400);
-
   }
   if (wrongAnswer === 3) {
-    nextButton.classList.add('hide');
+    nextButton.classList.add("hide");
     background.classList.add("hide");
     oneHearts.classList.add("hide");
     gameOver.classList.remove("hide");
     restartButtonElement.classList.remove("hide");
     gameOverMusic.play();
-    zeroHearts.classList.remove("hide")
+    zeroHearts.classList.remove("hide");
     gameMusic.pause();
-
   }
 }
 
 /*----- Question references ----- Displays the libary of questions for the quiz */
-const questions = [{
+const questions = [
+  {
     question: "What does NES stand for??",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Nashville Electric Service",
-        correct: false
+        correct: false,
       },
       {
         text: "National Evaluation Series",
-        correct: false
+        correct: false,
       },
       {
         text: "Nuverra Environmental Solutions",
-        correct: false
+        correct: false,
       },
       {
         text: "Nintendo Entertainment System",
-        correct: true
+        correct: true,
       },
     ],
   },
   {
     question: "Who is The Legend of Zelda protagonist?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Zelda",
-        correct: false
+        correct: false,
       },
       {
         text: "Link",
-        correct: true
+        correct: true,
       },
       {
         text: "Kirby",
-        correct: false
+        correct: false,
       },
       {
         text: "Jill Valentine",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -289,21 +291,22 @@ const questions = [{
   {
     question: 'What popular Nintendo game is also known as "Pocket Monsters"?',
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Digimon",
-        correct: false
+        correct: false,
       },
       {
         text: "Yokai Watch",
-        correct: false
+        correct: false,
       },
       {
         text: "Monster Hunter Stories",
-        correct: false
+        correct: false,
       },
       {
         text: "Pokemon",
-        correct: true
+        correct: true,
       },
     ],
   },
@@ -311,21 +314,22 @@ const questions = [{
   {
     question: 'What Game is famous for the line "Fatality"?',
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Street Fighter",
-        correct: false
+        correct: false,
       },
       {
         text: "Tekken",
-        correct: false
+        correct: false,
       },
       {
         text: "Mortal Kombat",
-        correct: true
+        correct: true,
       },
       {
         text: "Soul Calibur",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -333,21 +337,22 @@ const questions = [{
   {
     question: "Konami game where you play as Simon Belmont?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Castlevania",
-        correct: true
+        correct: true,
       },
       {
         text: "Contra",
-        correct: false
+        correct: false,
       },
       {
         text: "Journey to the Center of the Earth",
-        correct: false
+        correct: false,
       },
       {
         text: "Dragon Ball Z",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -355,21 +360,22 @@ const questions = [{
   {
     question: "Lara Croft is the Protagonist of what popular Playstation game?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Silent Hill",
-        correct: false
+        correct: false,
       },
       {
         text: "Tomb Raider",
-        correct: true
+        correct: true,
       },
       {
         text: "Dark Souls",
-        correct: false
+        correct: false,
       },
       {
         text: "Mario Kart",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -377,21 +383,22 @@ const questions = [{
   {
     question: "Blinky, Pinky, Inky, & _____?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Minkey",
-        correct: false
+        correct: false,
       },
       {
         text: "Chuck",
-        correct: false
+        correct: false,
       },
       {
         text: "Cylde",
-        correct: true
+        correct: true,
       },
       {
         text: "Eddy",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -399,21 +406,22 @@ const questions = [{
   {
     question: "What was Marios orginal name?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Jumpman",
-        correct: true
+        correct: true,
       },
       {
         text: "Plumberdude",
-        correct: false
+        correct: false,
       },
       {
         text: "Wreck-It-Ralph",
-        correct: false
+        correct: false,
       },
       {
         text: "RocketMan",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -421,43 +429,46 @@ const questions = [{
   {
     question: "Who is the richest fictional character?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Tywin Lannister",
-        correct: false
+        correct: false,
       },
       {
         text: "Jed Clampett",
-        correct: false
+        correct: false,
       },
       {
         text: "Bruce Wayne",
-        correct: false
+        correct: false,
       },
       {
         text: "Scoorge McDuck",
-        correct: true
+        correct: true,
       },
     ],
   },
 
   {
-    question: "Famous Skateboarder that inspired over 17 different Skateboard that cover many different gaming platforms?",
+    question:
+      "Famous Skateboarder that inspired over 17 different Skateboard that cover many different gaming platforms?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Tony Hawk",
-        correct: true
+        correct: true,
       },
       {
         text: "Rodney Mullen",
-        correct: false
+        correct: false,
       },
       {
         text: "Bam Margera",
-        correct: false
+        correct: false,
       },
       {
         text: "Oksana Baiul",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -465,21 +476,22 @@ const questions = [{
   {
     question: "Segas first handheld game console released worldwide?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Switch",
-        correct: false
+        correct: false,
       },
       {
         text: "PS Pro",
-        correct: false
+        correct: false,
       },
       {
         text: "Game Gear",
-        correct: true
+        correct: true,
       },
       {
         text: "Sega Genesis Arcade Ultimate Portable",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -487,43 +499,46 @@ const questions = [{
   {
     question: "Who is the doctor that created Mega Man?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Dr. Robotnik",
-        correct: false
+        correct: false,
       },
       {
         text: "Dr. Eggman",
-        correct: false
+        correct: false,
       },
       {
         text: "Dr. Light",
-        correct: true
+        correct: true,
       },
       {
         text: "Dr. Gero",
-        correct: false
+        correct: false,
       },
     ],
   },
 
   {
-    question: "Atari 2600 has a released a game that is considered one of the worst game ever?",
+    question:
+      "Atari 2600 has a released a game that is considered one of the worst game ever?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Pong",
-        correct: false
+        correct: false,
       },
       {
         text: "E.T. the Extra-Terrestrial",
-        correct: true
+        correct: true,
       },
       {
         text: "Space Invaders",
-        correct: false
+        correct: false,
       },
       {
         text: "Asteroids",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -531,64 +546,68 @@ const questions = [{
   {
     question: "Who is the damsel in distress from the original Donkey Kong?",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Pauline",
-        correct: true
+        correct: true,
       },
       {
         text: "Peach",
-        correct: false
+        correct: false,
       },
       {
         text: "Daisy",
-        correct: false
+        correct: false,
       },
       {
         text: "Amy Rose",
-        correct: false
+        correct: false,
       },
     ],
   },
 
   {
-    question: "Which videogame is generally considered to be the original third-person shooter??",
+    question:
+      "Which videogame is generally considered to be the original third-person shooter??",
     img: false,
-    answers: [{
+    answers: [
+      {
         text: "Modern Warfare",
-        correct: false
+        correct: false,
       },
       {
         text: "Grand Theift Auto",
-        correct: false
+        correct: false,
       },
       {
         text: "Doom",
-        correct: false
+        correct: false,
       },
       {
         text: "Wolfenstein 3D",
-        correct: true
+        correct: true,
       },
     ],
   },
   {
     question: "Who is this famous bounty hunter?",
     img: "Assets/Samus.png",
-    answers: [{
+    answers: [
+      {
         text: "Zero Suit Samus",
-        correct: true
+        correct: true,
       },
       {
         text: "Daisy",
-        correct: false
+        correct: false,
       },
       {
         text: "Chung-Li",
-        correct: false
+        correct: false,
       },
       {
         text: "Morganna",
-        correct: false
+        correct: false,
       },
     ],
   },
@@ -596,21 +615,22 @@ const questions = [{
   {
     question: "Which of these is the name of this pokemon?",
     img: "Assets/Jigglypuff.png",
-    answers: [{
+    answers: [
+      {
         text: "Gegar",
-        correct: false
+        correct: false,
       },
       {
         text: "Charizard",
-        correct: false
+        correct: false,
       },
       {
         text: "Ludicolo",
-        correct: false
+        correct: false,
       },
       {
         text: "Jigglypuff",
-        correct: true
+        correct: true,
       },
     ],
   },
@@ -618,63 +638,67 @@ const questions = [{
   {
     question: "What type of animal is Sonics companion Knuckles?",
     img: "Assets/Knuckles.png",
-    answers: [{
+    answers: [
+      {
         text: "Echidna",
-        correct: true
+        correct: true,
       },
       {
         text: "Headgehog",
-        correct: false
+        correct: false,
       },
       {
         text: "Possum",
-        correct: false
+        correct: false,
       },
       {
         text: "Red Fox",
-        correct: false
+        correct: false,
       },
     ],
   },
   {
     question: "This Arwing is from what game series??",
     img: "Assets/Arwing.png",
-    answers: [{
+    answers: [
+      {
         text: "Star Wars",
-        correct: false
+        correct: false,
       },
       {
         text: "Star Fox",
-        correct: true
+        correct: true,
       },
       {
         text: "Battlestar Galactica",
-        correct: false
+        correct: false,
       },
       {
         text: "Firefly",
-        correct: false
+        correct: false,
       },
     ],
   },
   {
-    question: "What is the name of this small purple dragon with a dragonfly partner?",
+    question:
+      "What is the name of this small purple dragon with a dragonfly partner?",
     img: "Assets/Spyro.png",
-    answers: [{
+    answers: [
+      {
         text: "Shenron",
-        correct: false
+        correct: false,
       },
       {
         text: "Smaug",
-        correct: false
+        correct: false,
       },
       {
         text: "Spyro",
-        correct: true
+        correct: true,
       },
       {
         text: "Toothless",
-        correct: false
+        correct: false,
       },
     ],
   },
