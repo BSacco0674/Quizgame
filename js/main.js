@@ -159,7 +159,6 @@ function displayHearts() {
   if (wrongAnswer === 0) {
     oneHearts.classList.add("hide");
     twoHearts.classList.add("hide");
-
   }
   if (wrongAnswer === 1) {
     oneHearts.classList.add("hide");
